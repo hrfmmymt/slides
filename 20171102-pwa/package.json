@@ -1,0 +1,21 @@
+{
+  "name": "20171102-pwa",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "css": "postcss -c ./.postcssrc.json",
+    "watch:css": "postcss -c ./.postcssrc.json src/style.css -o dist/style.css -w --map",
+    "serve": "browser-sync start --server --files './index.html' --config bs-config.js",
+    "watch": "npm run serve & npm run watch:css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.18.13",
+    "postcss": "^6.0.14",
+    "postcss-cli": "^4.1.1",
+    "talkiejs": "^0.12.1"
+  }
+}
