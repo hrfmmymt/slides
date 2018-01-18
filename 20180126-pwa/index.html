@@ -1,0 +1,119 @@
+<html>
+  <head>
+    <title>2018/01/26 - PWA とは</title>
+    <link rel="stylesheet" href="lib/talkie.min.css">
+    <link rel="stylesheet" href="lib/talkie-default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/monokai_sublime.min.css">
+    <link rel="stylesheet" href="dist/style.css">
+  </head>
+  <body>
+
+  <script layout="cover" invert type="text/x-markdown">
+  ## PWA とは
+  ## 2018/01/26
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+
+  # Progressive Web Apps
+
+  </script>
+
+
+  <script layout="bullets" type="text/x-markdown" backface="images/googling.png">
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" backface="images/firstpwa.png" class="bottom-link" backface-filter="blur(0px) brightness(.9)">
+
+  <small><a href="https://medium.com/@slightlylate/progressive-apps-escaping-tabs-without-losing-our-soul-3b93a8561955">https://medium.com/@slightlylate/progressive-apps-escaping-tabs-without-losing-our-soul-3b93a8561955</a></small>
+
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" backface="images/firstpwa.png" backface-filter="blur(1px) brightness(.1)" class="darkness">
+
+  - オフラインキャッシュ
+  - プッシュ通知
+  - とか（後で）
+  ## を総称したかった
+
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" backface="images/pwanow.png" class="bottom-link">
+  <small><a href="https://developers.google.com/web/progressive-web-apps/">https://developers.google.com/web/progressive-web-apps/</a></small>
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  - Reliable - Load instantly and never show the downasaur, even in uncertain network conditions.
+  - 信頼性 - 不安定なネットワーク状況であっても、即座にロードしてダウンサウルスを表示しないぞ
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" backface="images/downasaur.jpg" class="bottom-link">
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  - Fast - Respond quickly to user interactions with silky smooth animations and no janky scrolling.
+  - 速い - なめらかでスムーズなアニメーションやジャンクしないスクロールで、ユーザーインタラクションに素早く対応する（解釈ムズい)
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  - Engaging - Feel like a natural app on the device, with an immersive user experience.
+  - 魅力的 - 没入型ユーザーエクスペリエンスを備えた、デバイス上のネイティブアプリのような感覚
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  ### Progressive Web App Checklist
+  - Site is served over HTTPS
+  - サイトが HTTPS で配信されること
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  ### Progressive Web App Checklist
+  - Redirects HTTP traffic to HTTPS
+  - サイトで HTTP トラフィックを HTTPS にリダイレクトする
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  ### Progressive Web App Checklist
+  - Registers a service worker
+  - Service Worker を登録する
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  ### Progressive Web App Checklist
+  - Responds with a 200 when offline
+  - オフライン時に URL でステータスコード 200 を返す
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  ### Progressive Web App Checklist
+  - Has a `<meta name="viewport">`tag with width or initial-scale
+  - HTMLにビューポートのメタタグを含める
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  ### Progressive Web App Checklist
+  - Content is sized correctly for the viewport
+  - ビューポートのサイズに適合したコンテンツである
+  </script>
+
+  <script layout="bullets" invert type="text/x-markdown">
+
+  # おしまい
+
+  ### ご静聴ありがとうございました
+
+  </script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/highlight.min.js"></script>
+  <script src="lib/talkie.min.js"></script>
+  <script>
+  Talkie();
+
+  // リンクは別タブ
+  var i, links = document.querySelectorAll("a[href^='http']")
+  for(i=0; i<links.length; i++) {
+    links[i].setAttribute('target', '_blank');
+  }
+  </script>
+  </body>
+</html>

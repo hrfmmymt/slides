@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+[layout] a:link, [layout] a:visited, .darkness {
+  color: #fff;
+}
+
+.bottom-link p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+}
+
+.bottom-link p a {
+  color: #ff69b4 !important;
+}
