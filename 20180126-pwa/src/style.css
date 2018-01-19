@@ -8,9 +8,27 @@
   position: absolute;
   bottom: 0;
   left: 0;
+  right: 0;
+  text-align: center;
   background: #fff;
 }
 
 .bottom-link p a {
   color: #ff69b4 !important;
+}
+
+pre {
+  font-size: 1em !important;
+}
+
+.manifest pre {
+  background: #000;
+}
+
+.manifest pre * {
+  color: #fff !important;
+}
+
+[layout=code] a {
+  font-size: .8em;
 }

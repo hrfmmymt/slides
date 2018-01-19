@@ -43,57 +43,346 @@
   </script>
 
   <script layout="bullets" type="text/x-markdown">
+  ## 概論
   - Reliable - Load instantly and never show the downasaur, even in uncertain network conditions.
   - 信頼性 - 不安定なネットワーク状況であっても、即座にロードしてダウンサウルスを表示しないぞ
   </script>
 
-  <script layout="bullets" type="text/x-markdown" backface="images/downasaur.jpg" class="bottom-link">
+  <script layout="bullets" type="text/x-markdown" backface="images/downasaur.jpg">
   </script>
 
   <script layout="bullets" type="text/x-markdown">
+  ## 概論
   - Fast - Respond quickly to user interactions with silky smooth animations and no janky scrolling.
   - 速い - なめらかでスムーズなアニメーションやジャンクしないスクロールで、ユーザーインタラクションに素早く対応する（解釈ムズい)
   </script>
 
   <script layout="bullets" type="text/x-markdown">
+  ## 概論
   - Engaging - Feel like a natural app on the device, with an immersive user experience.
   - 魅力的 - 没入型ユーザーエクスペリエンスを備えた、デバイス上のネイティブアプリのような感覚
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  ### Progressive Web App Checklist
+  ### [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
+  #### Baseline Progressive Web App Checklist
   - Site is served over HTTPS
   - サイトが HTTPS で配信されること
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  ### Progressive Web App Checklist
-  - Redirects HTTP traffic to HTTPS
-  - サイトで HTTP トラフィックを HTTPS にリダイレクトする
+  ### [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
+  #### Baseline Progressive Web App Checklist
+  - Pages are responsive on tablets & mobile devices
+  - RWD（モバイルフレンドリー）
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  ### Progressive Web App Checklist
-  - Registers a service worker
-  - Service Worker を登録する
+  ### [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
+  #### Baseline Progressive Web App Checklist
+  - All app URLs load while offline
+  - 全ての URL がオフラインで読み込まれる
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  ### Progressive Web App Checklist
-  - Responds with a 200 when offline
-  - オフライン時に URL でステータスコード 200 を返す
+  ### [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
+  #### Baseline Progressive Web App Checklist
+  - Metadata provided for Add to Home screen
+  - "Add to Home screen" できるメタデータを提供する
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  ### Progressive Web App Checklist
-  - Has a `<meta name="viewport">`tag with width or initial-scale
-  - HTMLにビューポートのメタタグを含める
+  ### [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
+  #### Baseline Progressive Web App Checklist
+  - First load fast even on 3G
+  - 初回ロードが 3G 回線でも高速である
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  ### Progressive Web App Checklist
-  - Content is sized correctly for the viewport
-  - ビューポートのサイズに適合したコンテンツである
+  ### [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
+  #### Baseline Progressive Web App Checklist
+  - Site works cross-browser
+  - クロスブラウザで動作する
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  ### [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
+  #### Baseline Progressive Web App Checklist
+  - Page transitions don't feel like they block on the network
+  - ページ遷移をネットワーク上でブロックされているようには感じさせない  
+  ( ネットワークからのレスポンス待ってる間ローディングのインジケータとか出しとけってことらしい )
+  ( SPA? )
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  ### [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
+  #### Baseline Progressive Web App Checklist
+  - Each page has a URL
+  - 各ページにはURLがある
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" backface="images/lighthouse.png">
+  # [Lighthouse](https://developers.google.com/web/tools/lighthouse/?hl=ja)
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" backface="images/chromelighthouse.png" class="bottom-link">
+  <small><a href="https://r.nikkei.com/">https://r.nikkei.com/</a></small>
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" backface="images/suumo.png" class="bottom-link">
+  <small><a href="https://smp.suumo.jp/">https://smp.suumo.jp/</a></small>
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" backface="images/najimu.jpg" backface-filter="blur(7px) brightness(1)">
+  - 🙆‍段階（部分）的に導入できる
+    - Lighthouse 100点でなくてもいい
+    - 100点の達成がそのアプリのゴールというわけでもない
+  - 🙆‍既存サービスにも導入できる
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # WebAppManifest
+  ## manifest.json
+  - Add to homescreen
+    - -icon
+  - Splash screen
+  - theme-color ( `<meta>` )
+  - Full screen ( "display": "standalone || browser" )
+  - "orientation": "portrait || landscape"
+  </script>
+
+  <script layout="code" type="text/x-markdown" class="manifest">
+  ```manifest.json
+  {
+    "lang": "ja",
+    "name": "SUUMO",
+    "short_name": "SUUMO",
+    "icons": [{
+      "src": "/launcher-icon-3x.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    }, {
+      "src": "/splashscreen-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }, {
+      "src": "/splashscreen-icon-256x256.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    }, {
+      "src": "/splashscreen-icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    }, {
+      "src": "/splashscreen-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }],
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "start_url": "/apps/homescreen/",
+    "display": "standalone",
+    "gcm_sender_id": "926788163944"
+  }
+  ```
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" backface="images/manifest.png" class="bottom-link">
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # Service Worker
+  - Cache API
+  - ( Push Notification )
+  </script>
+
+  <script layout="cover" type="text/x-markdown" backface="images/worker.png" invert backface-filter="blur(0px) brightness(.6)">
+  # 👀
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # Web Worker
+  特定のページのバックグラウンドで動く JS
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # Service Worker
+  ### ブラウザの表示とは別スレッドで、バックグラウンドで動く JS Worker
+  - ブラウザにインストールする
+  - DOM API 操作不可
+  - Web 標準技術
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" backface="images/caniuse.png">
+  # 👀
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ```javascript
+  // https://example.com/script/main.js
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', {
+      scope: '/'
+    }).then(function(registration) {
+      // 登録成功
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }).catch(function(err) {
+      // 登録失敗 :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  }
+  ```
+  ※Service Worker は HTTPS か localhost でのみ動作
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  [Service Worker のライフサイクル](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle?hl=ja)
+  ```javascript
+  const CACHE_NAME = 'my-site-cache-v1';
+  const urlsToCache = [
+    '/',
+    '/styles/main.css',
+    '/script/main.js'
+  ];
+
+  self.addEventListener('install', function(event) {
+    // インストール処理
+    event.waitUntil(
+      caches.open(CACHE_NAME)
+        .then(function(cache) {
+          console.log('Opened cache');
+          return cache.addAll(urlsToCache);
+        })
+    );
+  });
+  ```
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  [Service Worker のライフサイクル](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle?hl=ja)
+  ```javascript
+  self.addEventListener('fetch', function(event) {
+    event.respondWith(
+      caches.open(CACHE_NAME).then(function(cache) {
+        return cache.match(event.request).then(function(response) {
+          const fetchPromise = fetch(event.request).then(function(networkResponse) {
+            cache.put(event.request, networkResponse.clone());
+            return networkResponse;
+          });
+          return response || fetchPromise;
+        });
+      });
+    );
+  });
+  ```
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" class="cycle">
+  <img src="https://camo.qiitausercontent.com/91424b3a365de2e3221f7e399dbe3ff019a31b23/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e616d617a6f6e6177732e636f6d2f302f35343835302f33643939386137612d643063312d626338372d636332372d3634356336643932643334622e706e67">
+
+  [https://qiita.com/y_fujieda/items/f9e765ac9d89ba241154](https://qiita.com/y_fujieda/items/f9e765ac9d89ba241154)
+  # 🙏
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ※どこで言うか迷ったので謎タイミングになったけど、外部リソース / CDN にもキャッシュ指定できるよ
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" class="cycle">
+  <a href="https://developers.google.com/web/tools/workbox/"><img src="https://developers.google.com/web/tools/workbox/thumb.png"></a>
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  sw.js
+  ```javascript
+  importScripts('/node_modules/workbox-sw/build/workbox-sw.vX.X.X.prod.js');
+
+  const workboxSW = new WorkboxSW();
+  workboxSW.precache([
+    {
+      url: '/index.html',
+      revision: 'bb121c',
+    }, {
+      url: '/styles/main.css',
+      revision: 'acd123',
+    }, {
+      url: '/scripts/main.js',
+      revision: 'a32caa',
+    }
+  ]);
+  ```
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  webpack.config.js
+  ```javascript
+  new WorkboxBuildWebpackPlugin({
+    globDirectory: 'dist/public',
+    globPatterns: ['*.{html,js,css}', 'images/**/*.{jpg,jpeg,png,gif,webp,svg}'],
+    globIgnores: ['sw.js'],
+    swSrc:'src/sw.js',
+    swDest: 'dist/sw.js',
+    templatedUrls: {
+      '/app-shell': ['../views/index.hbs']
+    }
+  });
+  ```
+  [https://havelog.ayumusato.com/develop/pwa/e742-appshell_practice_with_webpack_and_workbox.html](https://havelog.ayumusato.com/develop/pwa/e742-appshell_practice_with_webpack_and_workbox.html)
+  # 🙏
+  </script>
+
+  <script layout="cover" type="text/x-markdown">
+  <img src="https://developers.google.com/web/fundamentals/architecture/images/appshell.png?hl=ja">
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # [App Shell モデル](https://developers.google.com/web/fundamentals/architecture/app-shell?hl=ja)
+  ユーザーインターフェースが機能するために必要な最小限の HTML、CSS、JavaScript (App Shell) をオフラインで使用できるようにキャッシュしておくこと
+
+  - App Shell
+    - UI の骨組み
+    - アプリの起動に必要な主要コンポーネント
+    - 多くの場合データは含まれない
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ```jsx
+  import React from 'react';
+  import { renderToString } from 'react-dom/server';
+  import { Provider } from 'react-redux';
+  import escape from 'escape-html';
+  import serialize from 'serialize-javascript';
+  import App from '../containers/App';
+  import configureStore from '../store/configureStore';
+
+  const render = (state, metas) => {
+    const store = configureStore(preloadedState);
+    const root = renderToString(
+      <Provider store={store}>
+        <App />
+      </Provider>,
+    );
+    return `<!doctype html>
+      <html>
+        <head>
+          <title>${escape(metas.title)}</title>
+        </head>
+        <body>
+          <div id="root">${root}</div>
+          < script>
+            window.__PRELOADED_STATE__ = ${serialize(state)}
+          </ script>
+          < script src="/build/index.bundle.js"></ script>
+        </body>
+      </html>
+  `;
+  };
+  export default render;
+  ```
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # Push Notification
   </script>
 
   <script layout="bullets" invert type="text/x-markdown">
