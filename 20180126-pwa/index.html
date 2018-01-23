@@ -121,7 +121,7 @@
   - 各ページにはURLがある
   </script>
 
-  <script layout="bullets" type="text/x-markdown" backface="images/lighthouse.png">
+  <script layout="bullets" type="text/x-markdown" backface="images/lighthouse.png" class="lighthouse">
   # [Lighthouse](https://developers.google.com/web/tools/lighthouse/?hl=ja)
   </script>
 
@@ -187,7 +187,7 @@
   ```
   </script>
 
-  <script layout="bullets" type="text/x-markdown" backface="images/manifest.png" class="bottom-link">
+  <script layout="bullets" type="text/x-markdown" backface="images/manifest.png">
   </script>
 
   <script layout="bullets" type="text/x-markdown">
@@ -217,6 +217,12 @@
   # 👀
   </script>
 
+  <script layout="bullets" type="text/x-markdown">
+  Safari と Edge の開発版で Service Worker はデフォルトで ON になってる（現在）
+  - [https://webkit.org/blog/8042/release-notes-for-safari-technology-preview-46/](https://webkit.org/blog/8042/release-notes-for-safari-technology-preview-46/)
+  - [https://blogs.windows.com/msedgedev/2017/12/19/service-workers-going-beyond-page/#q1fTICimFt420jpg.97](https://blogs.windows.com/msedgedev/2017/12/19/service-workers-going-beyond-page/#Yyg2YRX6LSlW8mT6.97)
+  </script>
+
   <script layout="code" type="text/x-markdown">
   ```javascript
   // https://example.com/script/main.js
@@ -232,7 +238,7 @@
     });
   }
   ```
-  ※Service Worker は HTTPS か localhost でのみ動作
+  ※Service Worker は HTTPS か localhost で動作
   </script>
 
   <script layout="code" type="text/x-markdown">
@@ -313,6 +319,11 @@
   ```
   </script>
 
+  <script layout="code" type="text/x-markdown" class="cycle">
+  <a href="https://developers.google.com/web/tools/workbox/"><img src="https://developers.google.com/web/tools/workbox/thumb.png"></a>
+  <a href="https://webpack.js.org/"><img src="https://developers.google.com/web/tools/workbox/images/third_party/webpack-logo.svg"></a>
+  </script>
+
   <script layout="code" type="text/x-markdown">
   webpack.config.js
   ```javascript
@@ -381,8 +392,223 @@
   ```
   </script>
 
+  <script layout="" type="text/x-markdown">
+  # Examples
+
+  - [https://pwa.rocks/](https://pwa.rocks/)
+  - [https://pwa-directory.appspot.com/](https://pwa-directory.appspot.com/)
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  <img src="https://res.cloudinary.com/wego/image/upload/v1494208522/wego_logos/white/wego-logo-JP.png">
+
+  [https://www.wego.com/](https://www.wego.com/)
+  </script>
+
+  <script layout="" type="text/x-markdown">
+  <img src="images/wego.png">
+  </script>
+
+  <script layout="" type="text/x-markdown">
+  <img src="images/rnikkei.jpg">
+  </script>
+
+  <script layout="" type="text/x-markdown" backface="images/rnikkei.jpg" backface-filter="blur(2px) brightness(.4)" class="rnikkei">
+  - CDN (Fastly) でコンテンツキャッシュ
+  - ServiceWorker
+  - Resource  Hints で先行読み込み
+  - HTTP/2
+  - WebP
+
+  <small><a href="https://note.mu/konpyu/n/n9fd5b81f6305">https://note.mu/konpyu/n/n9fd5b81f6305</a></small>
+  ### 🙏
+  </script>
+
+  <script layout="cover" type="text/x-markdown">
+  <a href="https://dev.to/ben/making-devto-insanely-fast"><img src="https://res.cloudinary.com/practicaldev/image/fetch/s--PP397znZ--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/http://i.imgur.com/Q01pEZb.png"></a>
+  </script>
+
+  <script layout="" type="text/x-markdown" backface="https://res.cloudinary.com/practicaldev/image/fetch/s--PP397znZ--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/http://i.imgur.com/Q01pEZb.png" backface-filter="blur(2px) brightness(.4)" class="devto">
+
+  <blockquote class="hatena-bookmark-comment"><a class="comment-info" href="http://b.hatena.ne.jp/entry/348983189/comment/yosuke_furukawa" data-user-id="yosuke_furukawa" data-entry-url="http://b.hatena.ne.jp/entry/s/dev.to/ben/making-devto-insanely-fast" data-original-href="https://dev.to/ben/making-devto-insanely-fast" data-entry-favicon="https://cdn-ak.favicon.st-hatena.com/?url=https%3A%2F%2Fdev.to%2F" data-user-icon="/users/yosuke_furukawa/profile.png">Making dev.to insanely fast</a><br><p style="clear: left">dev.to が高速化のためにやってる施策。 1. CDNを使ってfastlyから キャッシュ済みのHTML配信。2. render-blockスタイル撲滅 3. Cloudinaryからwebpで画像配信、大きな画像は背景色を入れる。 4. 外部CSSとカスタムフォント使わない。</p><span class="datetime-body">2017/11/15 13:44</span></blockquote>
+
+  <small><a href="http://b.hatena.ne.jp/entry/348983189/comment/yosuke_furukawa">http://b.hatena.ne.jp/entry/348983189/comment/yosuke_furukawa</a></small>
+  ### 🙏
+  </script>
+
+  <script layout="" type="text/x-markdown">
+  # PRPL パターン
+
+  - Push: 最初の URL ルートに不可欠なリソースを Push（プッシュ）する。
+  - Render: 最初のルートを Render（レンダリング）する。
+  - Pre-cache: 残りのルートを Pre-cache（事前キャッシュ）する。
+  - Lazy-load: オンデマンドで残りのルートを Lazy-load（遅延読み込み）する。
+
+  <a href="https://developers.google.com/web/fundamentals/performance/prpl-pattern/?hl=ja"><small>https://developers.google.com/web/fundamentals/performance/prpl-pattern/?hl=ja</small></a>
+  </script>
+
   <script layout="bullets" type="text/x-markdown">
   # Push Notification
+
+  <img src="images/push-cycle1.jpg">
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  #### Push Notification
+
+  <img src="images/push-cycle2.jpg">
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ```javascript
+  // https://example.com/script/main.js
+  import * as firebase from 'firebase';
+
+  ...
+
+  const messaging = firebase.messaging();
+  messaging.requestPermission()
+    .then(function () {
+      console.log('Notification permission granted.');
+      messaging.getToken()
+        .then(function (currentToken) {
+          sendTokenToServer(currentToken);
+        })
+        .catch(function (err) {
+          console.log('An error occurred while retrieving token. ', err);
+        });
+    })
+    .catch(function (err) {
+      console.log('Unable to get permission to notify.', err);
+  });
+  ```
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ```json
+  curl -X POST -H "Authorization: key=YOUR-SERVER-KEY" -H
+  "Content-Type: application/json" -d '{
+    "notification": {
+      "title": "Portugal vs. Denmark",
+      "body": "5 to 1",
+      "icon": "firebase-logo.png",
+      "click_action": "http://localhost:8081"
+    },
+    "to": "DEVICE_REGISTRATION_TOKEN"
+  }' "https://fcm.googleapis.com/fcm/send"
+  ```
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ```javascript
+  // https://example.com/script/main.js
+  messaging.setBackgroundMessageHandler(function(payload) {
+    console.log('[main.js] Received background message ', payload);
+    // Customize notification here
+    const notificationTitle = 'Background Message Title';
+    const notificationOptions = {
+      body: 'Background Message body.',
+      icon: '/firebase-logo.png'
+    };
+
+    return self.registration.showNotification(notificationTitle,
+    notificationOptions);
+  });
+  ```
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  #### Push Notification
+
+  <img src="https://blog.kissmetrics.com/wp-content/uploads/2015/11/push-notifications-desktop-mobile.png">
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  <img src="images/badux.png">
+
+  [https://developers.google.com/web/fundamentals/push-notifications/permission-ux#ux](https://developers.google.com/web/fundamentals/push-notifications/permission-ux#ux)
+
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # Payment Request API
+
+  <img src="https://developers.google.com/web/fundamentals/payments/images/5_9_payment_request_ui.png?hl=ja" width="250">
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  #### Payment Request API
+  - 支払いフォーム UI の提供
+    - 支払いに必要な情報をブラウザに保存・フォームに自動セットすることによる支払いフローの簡略化
+    - 決済には別途ゲートウェイが必要 ( PAY.JP, stripe... )
+    - 現在は主要クレジットカードのみ対応、Android Pay, PayPal 対応予定
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ```javascript
+  function pay(details) {
+    // Define the type of card
+    ...
+
+    const request = new PaymentRequest(methodData, details, options);
+
+    request.show().then(result => {
+      return Promise.race([
+        fetch('/pay', {
+          method: 'POST',
+          credentials: 'include',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(result.toJSON())
+        })
+      ])
+      .then(response => {
+        if (response.status === 200) {
+          return result.complete('success');
+        } else {
+          return result.complete('fail');
+        }
+      })
+      .catch(() => result.complete('fail'));
+    });
+  }
+  ```
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ```javascript
+  function onBuyClicked(event) {
+    pay({
+      displayItems: [{
+        label: event.target.parentNode.dataset.label,
+        amount: {
+          currency: 'JPY',
+          value: event.target.parentNode.dataset.value
+        }
+      }, {
+        label: 'Friends and family discount',
+        amount: {
+          currency: 'JPY',
+          value : '-10'
+        },
+        pending: true
+      }],
+      total: {
+        label: 'Total',
+        amount: {
+          currency: 'JPY',
+          value: Number(event.target.parentNode.dataset.value) - 10
+        }
+      }
+    });
+  }
+  ```
+  </script>
+
+  <script layout="" type="text/x-markdown">
+  #### Payment Request API
+  <img src="images/payment.png">
   </script>
 
   <script layout="bullets" invert type="text/x-markdown">

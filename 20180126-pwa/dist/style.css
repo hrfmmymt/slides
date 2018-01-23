@@ -1,7 +1,7 @@
 @charset "utf-8";
 
-[layout] a:link, [layout] a:visited, .darkness {
-  color: #fff;
+.lighthouse h1 a {
+  color: #fff !important;
 }
 
 .bottom-link p {
@@ -31,4 +31,43 @@ pre {
 
 [layout=code] a {
   font-size: .8em;
+}
+
+.rnikkei *,
+.devto * {
+  color: #fff !important;
+  font-weight: bold;
+}
+
+[layout] ul {
+  list-style-type: inherit;
+}
+
+[layout] ol {
+  list-style-type: decimal;
+}
+
+[layout] ol ol,
+[layout] ol ul,
+[layout] ul ol,
+[layout] ul ul {
+  list-style-type: inherit;
+}
+
+[layout=bullets] ol ol,
+[layout=bullets] ol ul,
+[layout=bullets] ul ol,
+[layout=bullets] ul ul {
+  list-style-type: inherit;
+}
+
+[layout=bullets] ol ol li,
+[layout=bullets] ol ul li,
+[layout=bullets] ul ol li,
+[layout=bullets] ul ul li {
+  list-style-type: circle;
+}
+
+[layout] blockquote {
+  opacity: 1;
 }
