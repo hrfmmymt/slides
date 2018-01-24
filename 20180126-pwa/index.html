@@ -201,7 +201,7 @@
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  # Web Worker
+  # (Web Worker)
   特定のページのバックグラウンドで動く JS
   </script>
 
@@ -291,7 +291,7 @@
   </script>
 
   <script layout="code" type="text/x-markdown">
-  ※どこで言うか迷ったので謎タイミングになったけど、外部リソース / CDN にもキャッシュ指定できるよ
+  ※どこで言うか迷ったので謎タイミングになったけど、CDN にもキャッシュ指定できるよ
   </script>
 
   <script layout="bullets" type="text/x-markdown" class="cycle">
@@ -609,6 +609,60 @@
   <script layout="" type="text/x-markdown">
   #### Payment Request API
   <img src="images/payment.png">
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # Credential Management API
+
+  <img src="images/cred.jpg" width="750">
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  #### Credential Management API
+  - ユーザー認証 UI
+    - id / passwordをブラウザに保存
+    - アカウント選択ダイアログ
+    - 自動ログイン
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ```javascript
+  if (navigator.credentials) {
+    event.preventDefault()
+
+    const c = new PasswordCredential(event.target)
+    const init = {
+      method: 'POST',
+      credentials: c
+    }
+
+    navigator.credentials.store(c)
+  } else {
+    alert('Your brouser does not support credential management')
+  }
+  ```
+
+  [https://github.com/hrfmmymt/credential-management-sample](https://github.com/hrfmmymt/credential-management-sample)
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ```javascript
+  navigator.credentials.get({
+    'password': true
+  }).then(
+    function(cred) {
+      console.log(cred)
+      if (cred) {
+         alert('login as ' + cred.id)
+      } else {
+        alert('can not use credentials')
+        return
+      }
+    }
+  )
+  ```
+
+  [https://github.com/hrfmmymt/credential-management-sample](https://github.com/hrfmmymt/credential-management-sample)
   </script>
 
   <script layout="bullets" invert type="text/x-markdown">
