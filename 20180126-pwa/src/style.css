@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+.darkness * {
+  color: #fff;
+}
+
 .lighthouse h1 a {
   color: #fff !important;
 }
@@ -70,4 +74,16 @@ pre {
 
 [layout] blockquote {
   opacity: 1;
+}
+
+.breaking h1 {
+  color: #fff;
+}
+
+[layout] a {
+  word-break: break-all;
+}
+
+.pwamp * {
+  color: #fff !important;
 }

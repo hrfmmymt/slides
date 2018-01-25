@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>2018/01/26 - PWA とは</title>
+    <title>PWA 勉強会資料 - 2018/01/26</title>
     <link rel="stylesheet" href="lib/talkie.min.css">
     <link rel="stylesheet" href="lib/talkie-default.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.9.1/styles/monokai_sublime.min.css">
@@ -8,12 +8,13 @@
   </head>
   <body>
 
-  <script layout="cover" invert type="text/x-markdown">
-  ## PWA とは
-  ## 2018/01/26
+  <script layout="cover" invert type="text/x-markdown" backface="images/cover1.JPG" backface-filter="blur(1px) brightness(.8)" class="darkness">
+  ## PWA 勉強会
+  ## 2018/01/26 16:00~17:00
+  ## @ 大会議室
   </script>
 
-  <script layout="bullets" type="text/x-markdown">
+  <script layout="cover" type="text/x-markdown" backface="images/cover2.JPG" backface-filter="blur(1px) brightness(.8)" class="darkness">
 
   # Progressive Web Apps
 
@@ -23,9 +24,10 @@
   <script layout="bullets" type="text/x-markdown" backface="images/googling.png">
   </script>
 
-  <script layout="bullets" type="text/x-markdown" backface="images/firstpwa.png" class="bottom-link" backface-filter="blur(0px) brightness(.9)">
+  <script layout="bullets" type="text/x-markdown">
+  <img src="images/firstpwa.png" width="60%">
 
-  <small><a href="https://medium.com/@slightlylate/progressive-apps-escaping-tabs-without-losing-our-soul-3b93a8561955">https://medium.com/@slightlylate/progressive-apps-escaping-tabs-without-losing-our-soul-3b93a8561955</a></small>
+  [https://medium.com/@slightlylate/progressive-apps-escaping-tabs-without-losing-our-soul-3b93a8561955](https://medium.com/@slightlylate/progressive-apps-escaping-tabs-without-losing-our-soul-3b93a8561955)
 
   </script>
 
@@ -38,14 +40,16 @@
 
   </script>
 
-  <script layout="bullets" type="text/x-markdown" backface="images/pwanow.png" class="bottom-link">
-  <small><a href="https://developers.google.com/web/progressive-web-apps/">https://developers.google.com/web/progressive-web-apps/</a></small>
+  <script layout="bullets" type="text/x-markdown">
+  <img src="images/pwanow.png">
+
+  [https://developers.google.com/web/progressive-web-apps/](https://developers.google.com/web/progressive-web-apps/)
   </script>
 
   <script layout="bullets" type="text/x-markdown">
   ## 概論
   - Reliable - Load instantly and never show the downasaur, even in uncertain network conditions.
-  - 信頼性 - 不安定なネットワーク状況であっても、即座にロードしてダウンサウルスを表示しないぞ
+  - 信頼性 - 不安定なネットワーク状況であっても、即座にロードしてダウナソーを表示しないぞ
   </script>
 
   <script layout="bullets" type="text/x-markdown" backface="images/downasaur.jpg">
@@ -192,6 +196,7 @@
 
   <script layout="bullets" type="text/x-markdown">
   # Service Worker
+  - intercept and handle network requests
   - Cache API
   - ( Push Notification )
   </script>
@@ -210,11 +215,11 @@
   ### ブラウザの表示とは別スレッドで、バックグラウンドで動く JS Worker
   - ブラウザにインストールする
   - DOM API 操作不可
-  - Web 標準技術
   </script>
 
-  <script layout="bullets" type="text/x-markdown" backface="images/caniuse.png">
-  # 👀
+  <script layout="bullets" type="text/x-markdown">
+  #### Service Worker
+  <img src="images/caniuse.png">
   </script>
 
   <script layout="bullets" type="text/x-markdown">
@@ -620,7 +625,7 @@
   <script layout="bullets" type="text/x-markdown">
   #### Credential Management API
   - ユーザー認証 UI
-    - id / passwordをブラウザに保存
+    - 認証情報をブラウザに保存・更新
     - アカウント選択ダイアログ
     - 自動ログイン
   </script>
@@ -663,6 +668,163 @@
   ```
 
   [https://github.com/hrfmmymt/credential-management-sample](https://github.com/hrfmmymt/credential-management-sample)
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  #### Credential Management API
+  <img src="images/canicred.png">
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # AMP
+  ## Accelerated Mobile Pages
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ```html
+  <!doctype html>
+  <html ⚡>
+  <head>
+  ...
+  <style amp-custom>
+  /* any custom styles go here. */
+  body {
+  background-color: white;
+  }
+  amp-img {
+  border: 5px solid black;
+  }
+
+  amp-img.grey-placeholder {
+  background-color: grey;
+  }
+  </style>
+  ...
+  </head>
+  <body>
+  ...
+  </body>
+  </html>
+  ```
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ```html
+  <amp-img
+  class="grey-placeholder"
+  src="https://placekitten.com/g/500/300"
+  srcset="/img/cat.jpg 640w,
+  /img/kitten.jpg 320w"
+  width="500"
+  height="300"
+  layout="responsive">
+  </amp-img>
+  ````
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  ## [AMP by Example](https://ampbyexample.com/)
+  <img src="images/ampbyex.png" width="70%">
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ### amp-list
+  ```html
+  <!doctype html>
+  <html ⚡>
+  <head>
+  < script async src="https://cdn.ampproject.org/v0.js"></ script>
+  < script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></ script>
+  < script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.1.js"></ script>
+  ...
+  </head>
+  <body>
+  <amp-list width="auto" height="100" layout="fixed-height" src="https://ampbyexample.com/json/examples.json" class="m1">
+    <template type="amp-mustache" id="amp-template-id">
+      <div><a href="{{url}}">{{title}}</a></div>
+    </template>
+  </amp-list>
+  </body>
+  ```
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  <img src="https://1.bp.blogspot.com/-ttRMKTXiERQ/Vs2YQ4UHkRI/AAAAAAAACGg/6JTDRRR02F4/s640/AMP.png">
+
+  [https://developers-jp.googleblog.com/2016/02/google-accelerated-mobile-pages.html](https://developers-jp.googleblog.com/2016/02/google-accelerated-mobile-pages.html)
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  #### AMP
+  - 特定のページだけ対応でも OK
+  - 諸々の縛りプレイで条件を満たして AMP となる
+    - AMP Validator  
+  <img src="images/amp-valid.png" width="70%">
+  </script>
+
+  <script layout="bullets" type="text/x-markdown" backface="http://www.supagaijin.com/wp-content/themes/display/framework/includes/timthumb.php?src=/wp-content/uploads/2010/04/OOPS.jpg&h=273&w=610&zc=1" backface-filter="blur(4px) brightness(.3)" class="pwamp">
+  # AMP as PWA
+  # AMP to PWA
+  # AMP in PWA
+
+  [https://www.ampproject.org/ja/docs/guides/pwa-amp](https://www.ampproject.org/ja/docs/guides/pwa-amp)
+  </script>
+
+  <script layout="code" type="text/x-markdown">
+  ### amp-install-serviceworker
+  ```html
+  <!doctype html>
+  <html amp>
+  <head>
+    ...
+    < script async src="https://cdn.ampproject.org/v0.js"></ script>
+    < script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></ script>
+  </head>
+  <body>
+    <amp-install-serviceworker
+      src="https://www.your-domain.com/serviceworker.js"
+      data-iframe-src="https://www.your-domain.com/install-serviceworker.html"
+      layout="nodisplay">
+    </amp-install-serviceworker>
+  </body>
+  </html>
+  ```
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # AMP as PWA
+  PWA の機能を取り入れた AMP ページ
+  - 先行読み込み・オフラインキャッシュ・プッシュ通知などができる AMP
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # AMP to PWA
+  PWA へのエントリ ポイントとしての AMP
+  - 入り口が AMP
+    - バックグラウンドで SW インストールしてあとは流れで
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  # AMP in PWA
+  PWA で AMP
+  - PWA のデータソースとしての AMP
+
+  [https://developers-jp.googleblog.com/2017/08/progressive-web-amp-amp-shadowreader.html](https://developers-jp.googleblog.com/2017/08/progressive-web-amp-amp-shadowreader.html)
+  </script>
+
+  <script layout="cover" type="text/x-markdown" backface="https://www.apple.com/jp/safari/images/og.png?201801120208" backface-filter="blur(2px) brightness(.4)" class="breaking">
+  # BREAK⚡NG
+  </script>
+
+  <script layout="" type="text/x-markdown">
+  # Safari 11.1
+  #### Safari 11.1 ships with iOS 11.3 and macOS 10.13.4. It is also available in macOS 10.12.6 and 10.11.6.
+
+  - Service Workers
+  - Payment Request API
+  - Web App Manifest
+
+  [https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_11_1.html](https://developer.apple.com/library/content/releasenotes/General/WhatsNewInSafari/Articles/Safari_11_1.html)
   </script>
 
   <script layout="bullets" invert type="text/x-markdown">
