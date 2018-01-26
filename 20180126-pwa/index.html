@@ -8,13 +8,13 @@
   </head>
   <body>
 
-  <script layout="cover" invert type="text/x-markdown" backface="images/cover1.JPG" backface-filter="blur(1px) brightness(.8)" class="darkness">
+  <script layout="cover" invert type="text/x-markdown" backface="images/cover.jpg">
   ## PWA 勉強会
   ## 2018/01/26 16:00~17:00
   ## @ 大会議室
   </script>
 
-  <script layout="cover" type="text/x-markdown" backface="images/cover2.JPG" backface-filter="blur(1px) brightness(.8)" class="darkness">
+  <script layout="" type="text/x-markdown">
 
   # Progressive Web Apps
 
@@ -41,13 +41,15 @@
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  <img src="images/pwanow.png">
+  ### 三つのポイント
+
+  <img src="images/pwanow.png" width="60%">
 
   [https://developers.google.com/web/progressive-web-apps/](https://developers.google.com/web/progressive-web-apps/)
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  ## 概論
+  ## 概論 1 of 3
   - Reliable - Load instantly and never show the downasaur, even in uncertain network conditions.
   - 信頼性 - 不安定なネットワーク状況であっても、即座にロードしてダウナソーを表示しないぞ
   </script>
@@ -56,13 +58,13 @@
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  ## 概論
+  ## 概論 2 of 3
   - Fast - Respond quickly to user interactions with silky smooth animations and no janky scrolling.
-  - 速い - なめらかでスムーズなアニメーションやジャンクしないスクロールで、ユーザーインタラクションに素早く対応する（解釈ムズい)
+  - 速い - なめらかでスムーズなアニメーションやジャンクのないスクロールで、ユーザーインタラクションに素早く対応する（解釈ムズい)
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  ## 概論
+  ## 概論 3 of 3
   - Engaging - Feel like a natural app on the device, with an immersive user experience.
   - 魅力的 - 没入型ユーザーエクスペリエンスを備えた、デバイス上のネイティブアプリのような感覚
   </script>
@@ -78,7 +80,7 @@
   ### [Progressive Web App Checklist](https://developers.google.com/web/progressive-web-apps/checklist)
   #### Baseline Progressive Web App Checklist
   - Pages are responsive on tablets & mobile devices
-  - RWD（モバイルフレンドリー）
+  - RWD / Adaptive Design（モバイルフレンドリー）
   </script>
 
   <script layout="bullets" type="text/x-markdown">
@@ -145,6 +147,13 @@
   </script>
 
   <script layout="bullets" type="text/x-markdown">
+  # Develop PWA
+  - WebAppManifest
+  - Service Worker
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  #### ~ Develop PWA ~
   # WebAppManifest
   ## manifest.json
   - Add to homescreen
@@ -153,6 +162,10 @@
   - theme-color ( `<meta>` )
   - Full screen ( "display": "standalone || browser" )
   - "orientation": "portrait || landscape"
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  <img src="images/webappmanifest.png">
   </script>
 
   <script layout="code" type="text/x-markdown" class="manifest">
@@ -191,23 +204,17 @@
   ```
   </script>
 
-  <script layout="bullets" type="text/x-markdown" backface="images/manifest.png">
+  <script layout="bullets" type="text/x-markdown">
+  <img src="images/manifest.png">
   </script>
 
   <script layout="bullets" type="text/x-markdown">
+  #### ~ Develop PWA ~
   # Service Worker
   - intercept and handle network requests
   - Cache API
   - ( Push Notification )
-  </script>
-
-  <script layout="cover" type="text/x-markdown" backface="images/worker.png" invert backface-filter="blur(0px) brightness(.6)">
-  # 👀
-  </script>
-
-  <script layout="bullets" type="text/x-markdown">
-  # (Web Worker)
-  特定のページのバックグラウンドで動く JS
+    - ※ PWA の文脈では "勧奨" といった立ち位置
   </script>
 
   <script layout="bullets" type="text/x-markdown">
@@ -218,7 +225,6 @@
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  #### Service Worker
   <img src="images/caniuse.png">
   </script>
 
@@ -304,6 +310,36 @@
   </script>
 
   <script layout="code" type="text/x-markdown">
+  workbox-cli-config.js
+  ```javascript
+  module.exports = {
+    globDirectory: './',
+    globPatterns: [
+      '**/*.{jpg,html}'
+    ],
+    runtimeCaching: [{
+      urlPattern: '**/*.jpg',
+      handler: 'cacheFirst'
+    }],
+    options: {
+      cacheExpiration: {
+        maxAgeSeconds: 86400,
+        maxEntries: 10
+      }
+    },
+    swDest: './sw.js',
+    globIgnores: [
+      'workbox-cli-config.js',
+      'node_modules/**/*'
+    ],
+    templatedUrls: {
+      '/': ['index.mustache', 'server.js']
+    }
+  };
+  ```
+  </script>
+
+  <script layout="code" type="text/x-markdown">
   sw.js
   ```javascript
   importScripts('/node_modules/workbox-sw/build/workbox-sw.vX.X.X.prod.js');
@@ -347,10 +383,6 @@
   # 🙏
   </script>
 
-  <script layout="cover" type="text/x-markdown">
-  <img src="https://developers.google.com/web/fundamentals/architecture/images/appshell.png?hl=ja">
-  </script>
-
   <script layout="bullets" type="text/x-markdown">
   # [App Shell モデル](https://developers.google.com/web/fundamentals/architecture/app-shell?hl=ja)
   ユーザーインターフェースが機能するために必要な最小限の HTML、CSS、JavaScript (App Shell) をオフラインで使用できるようにキャッシュしておくこと
@@ -361,44 +393,12 @@
     - 多くの場合データは含まれない
   </script>
 
-  <script layout="code" type="text/x-markdown">
-  ```jsx
-  import React from 'react';
-  import { renderToString } from 'react-dom/server';
-  import { Provider } from 'react-redux';
-  import escape from 'escape-html';
-  import serialize from 'serialize-javascript';
-  import App from '../containers/App';
-  import configureStore from '../store/configureStore';
-
-  const render = (state, metas) => {
-    const store = configureStore(preloadedState);
-    const root = renderToString(
-      <Provider store={store}>
-        <App />
-      </Provider>,
-    );
-    return `<!doctype html>
-      <html>
-        <head>
-          <title>${escape(metas.title)}</title>
-        </head>
-        <body>
-          <div id="root">${root}</div>
-          < script>
-            window.__PRELOADED_STATE__ = ${serialize(state)}
-          </ script>
-          < script src="/build/index.bundle.js"></ script>
-        </body>
-      </html>
-  `;
-  };
-  export default render;
-  ```
+  <script layout="cover" type="text/x-markdown">
+  <img src="https://developers.google.com/web/fundamentals/architecture/images/appshell.png?hl=ja">
   </script>
 
   <script layout="" type="text/x-markdown">
-  # Examples
+  # PWA Examples
 
   - [https://pwa.rocks/](https://pwa.rocks/)
   - [https://pwa-directory.appspot.com/](https://pwa-directory.appspot.com/)
@@ -549,6 +549,12 @@
     - 現在は主要クレジットカードのみ対応、Android Pay, PayPal 対応予定
   </script>
 
+  <script layout="bullets" type="text/x-markdown">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/hmqZxP6iTpo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  [拙demo](https://hrfmmymt.github.io/payment-request-api-sample/)
+  </script>
+
   <script layout="code" type="text/x-markdown">
   ```javascript
   function pay(details) {
@@ -612,7 +618,6 @@
   </script>
 
   <script layout="" type="text/x-markdown">
-  #### Payment Request API
   <img src="images/payment.png">
   </script>
 
@@ -628,6 +633,12 @@
     - 認証情報をブラウザに保存・更新
     - アカウント選択ダイアログ
     - 自動ログイン
+  </script>
+
+  <script layout="bullets" type="text/x-markdown">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/O3mBdKYMsMY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+  [拙demo](https://hrfmmymt.github.io/credential-management-sample/)
   </script>
 
   <script layout="code" type="text/x-markdown">
@@ -646,8 +657,6 @@
     alert('Your brouser does not support credential management')
   }
   ```
-
-  [https://github.com/hrfmmymt/credential-management-sample](https://github.com/hrfmmymt/credential-management-sample)
   </script>
 
   <script layout="code" type="text/x-markdown">
@@ -666,12 +675,9 @@
     }
   )
   ```
-
-  [https://github.com/hrfmmymt/credential-management-sample](https://github.com/hrfmmymt/credential-management-sample)
   </script>
 
   <script layout="bullets" type="text/x-markdown">
-  #### Credential Management API
   <img src="images/canicred.png">
   </script>
 
